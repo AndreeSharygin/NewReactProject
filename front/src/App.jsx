@@ -11,13 +11,7 @@ function App() {
     }
 const [showHeader, setShowHeader] = useState(true)
 const [showFooter, setShowFooter] = useState(true)
-useEffect(
-  () => {
 
-    alert("Добро пожаловать!")  
-  },
-  []
-)
   return (
     <>
       {/* <Header text="ВАС ПРИВЕТСТВУЕТ СЧЕТЧИК КЛИКОВ" title="ВЫБЕРИТЕ ДЕЙСТВИЕ С ПОМОЩЬЮ КНОПОК" /> */}
