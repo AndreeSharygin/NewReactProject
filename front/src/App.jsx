@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Header from './components/UI/Header'
 import Footer from './components/UI/Footer'
@@ -9,11 +9,20 @@ function App() {
     const pHover = () => { 
     console.log("Навели на p")
     }
+const [showHeader, setShowHeader] = useState(true)
+const [showFooter, setShowFooter] = useState(true)
+useEffect(
+  () => {
 
-
+    alert("Добро пожаловать!")  
+  },
+  []
+)
   return (
     <>
-      <Header text="ВАС ПРИВЕТСТВУЕТ СЧЕТЧИК КЛИКОВ" title="ВЫБЕРИТЕ ДЕЙСТВИЕ С ПОМОЩЬЮ КНОПОК" />
+      {/* <Header text="ВАС ПРИВЕТСТВУЕТ СЧЕТЧИК КЛИКОВ" title="ВЫБЕРИТЕ ДЕЙСТВИЕ С ПОМОЩЬЮ КНОПОК" /> */}
+      {showHeader && <Header text="ВАС ПРИВЕТСТВУЕТ СЧЕТЧИК КЛИКОВ" title="ВЫБЕРИТЕ ДЕЙСТВИЕ С ПОМОЩЬЮ КНОПОК"  />}
+      <button onClick={() => setShowHeader(!showHeader)}>{showHeader ? "Скрыть" : "Показать"} Header</button>
       <p onMouseEnter={pHover}>Hello World</p>
       <h1>Счётчик кликов</h1>
       <button onClick={() => setCount(count + 1)}>
@@ -29,7 +38,9 @@ function App() {
       }>
       Сбросить: {count}
       </button>       
-      <Footer text="СЧЕТЧИК КЛИКОВ ПРОЩАЕТСЯ С ВАМИ" title="ДО СКОРЫХ ВСТРЕЧ" />
+      {/* <Footer text="СЧЕТЧИК КЛИКОВ ПРОЩАЕТСЯ С ВАМИ" title="ДО СКОРЫХ ВСТРЕЧ" /> */}
+      {showFooter&& <Footer text='СЧЕТЧИК КЛИКОВ ПРОЩАЕТСЯ С ВАМИ' title='ДО СКОРЫХ ВСТРЕЧ' />}
+      <button onClick={() => setShowFooter(!showFooter)}>{showFooter ? "Скрыть":"Показать"} Footer</button>
     </>
   )
 }
